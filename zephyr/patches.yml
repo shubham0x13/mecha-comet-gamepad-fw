@@ -1,0 +1,37 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Applied with "west patch apply" after "west update".
+# After editing a patch file, update its sha256sum here.
+patches:
+  - path: zephyr/0001-soc-nxp-mcxc-add-MCXC243-SoC-support.patch
+    sha256sum: 68070b752bb878527eeb7a3cf659730970f37d69cc7c140f7e5b466ab811bcc0
+    module: zephyr
+    author: Shubham Patel
+    email: shubham0x13@gmail.com
+    date: 2026-10-12
+    upstreamable: true
+    merge-pr: https://github.com/zephyrproject-rtos/zephyr/pull/121888
+    merge-status: true
+    merge-commit: 0b07590b00ea4e0bd7a5bc5045e82c39a8f1823e
+    merge-date: 2026-10-29
+    comments: |
+      MCXC243 SoC support (upstream PR 121888), merged in Zephyr main after
+      v4.5.0 was released. Drop once the pinned Zephyr contains the commit.
+
+  - path: zephyr/0002-drivers-adc-ads1x1x-support-several-channels.patch
+    sha256sum: fdbfa9b645d804425d8c713ce5d049b25077f47bd8a269c3ef3abe33ce16bced
+    module: zephyr
+    author: Shubham Patel
+    email: shubham0x13@gmail.com
+    date: 2026-10-16
+    upstreamable: true
+    merge-pr: https://github.com/zephyrproject-rtos/zephyr/pull/122444
+    merge-status: true
+    merge-commit: b89be4b9995face4839d02d358e80bf8fafb8156
+    merge-date: 2026-11-11
+    comments: |
+      ADS1x1x: support several channels (upstream PR 122444), merged in Zephyr main after
+      v4.5.0 was released. This is the merged driver commit.
+      Needed to read the X and Y axes of the Pivot Pip on AIN0 and AIN1.
+      Drop once the pinned Zephyr contains the PR.
