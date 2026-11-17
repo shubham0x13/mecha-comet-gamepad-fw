@@ -1,0 +1,15 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+if BOARD_MECHA_COMET_GAMEPAD
+
+# The MCX C start-up code only disables the COP watchdog when this is set.
+# Without it nothing feeds the watchdog and the chip resets.
+# This must stay a plain config entry. WDT_DISABLE_AT_BOOT depends on
+# WATCHDOG, which this board does not use. Defining the symbol again here makes
+# this board a second way to satisfy that dependency. A configdefault only adds
+# a default, so the option would stay off.
+config WDT_DISABLE_AT_BOOT
+	default y
+
+endif # BOARD_MECHA_COMET_GAMEPAD

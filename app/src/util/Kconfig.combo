@@ -1,0 +1,32 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+config COMET_GAMEPAD_COMBO_MAX
+	int "Maximum number of button combinations"
+	default 8
+	range 1 32
+	help
+	  Number of button combinations that can be set up. Each one needs a small work item.
+
+config COMET_GAMEPAD_COMBO_POWER_UP_WINDOW_MS
+	int "Time after power-up for the power-up combinations"
+	default 1000
+	range 100 10000
+	help
+	  A combination that is made at power-up is only looked for when all of its buttons are
+	  pressed within this time after power-up, in milliseconds. Pressing them later does
+	  nothing, so a game cannot start it by accident.
+
+config COMET_GAMEPAD_COMBO_STACK_SIZE
+	int "Stack size of the combination work queue"
+	default 1024
+	help
+	  The actions of the combinations run in their own work queue, because some of them
+	  block, for example to erase flash or to restart. That would stop the system work
+	  queue, which also drives the status LED.
+
+config COMET_GAMEPAD_COMBO_THREAD_PRIORITY
+	int "Priority of the combination work queue"
+	default 10
+	help
+	  Thread priority of the work queue that runs the actions of the combinations.

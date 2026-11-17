@@ -1,0 +1,9 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+menu "Modules"
+
+rsource "Kconfig.status_led"
+rsource "usb/Kconfig"
+
+endmenu

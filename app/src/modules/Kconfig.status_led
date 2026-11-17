@@ -1,0 +1,11 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+config COMET_GAMEPAD_STATUS_LED
+	bool "Status LED"
+	default y
+	depends on $(dt_nodelabel_enabled,status_led)
+	select LED
+	help
+	  Show the state of the gamepad, such as the USB connection and the button combinations, on
+	  the LED with the node label status_led.
