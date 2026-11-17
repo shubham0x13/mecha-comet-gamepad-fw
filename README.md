@@ -82,8 +82,8 @@ a controller mapping.
 | LED                | Meaning                                                   |
 | ------------------ | --------------------------------------------------------- |
 | Slow blink         | Waiting for the host                                      |
-| On                 | Connected, also while the host sleeps                     |
-| Off                | No power, or the gamepad is in the USB bootloader         |
+| On                 | Connected                                                 |
+| Off                | The host sleeps, no power, or the USB bootloader          |
 | Two short blinks   | Right stick recalibrated                                  |
 | Fast blink         | Left stick calibration: release the stick                 |
 | Double blink       | Left stick calibration: turn the stick all the way round  |

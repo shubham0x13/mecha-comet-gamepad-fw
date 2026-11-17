@@ -13,7 +13,8 @@
  * The LED follows the USB state and shows the gamepad events (see gamepad_events.h):
  *
  * - Slow blink: waiting for the host.
- * - On: connected and set up by the host, also while the host sleeps.
+ * - On: connected and set up by the host.
+ * - Off: the host sleeps (suspended USB), there is no power, or the chip is in its USB bootloader.
  * - Two short blinks: the right stick was recalibrated.
  * - Fast blink: left stick calibration, release the stick.
  * - Double blink: left stick calibration, turn the stick all the way round.

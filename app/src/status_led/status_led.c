@@ -43,6 +43,7 @@ struct led_pattern {
 	}
 
 /* Base patterns, from the USB state. */
+static const struct led_pattern pattern_off = LED_PATTERN(false, {false, 0});
 static const struct led_pattern pattern_on = LED_PATTERN(false, {true, 0});
 static const struct led_pattern pattern_waiting = LED_PATTERN(true, {true, 500}, {false, 500});
 
@@ -134,13 +135,11 @@ static void status_led_show(const struct led_pattern *new_base,
 static const struct led_pattern *status_led_usb_pattern(enum usb_state state)
 {
 	switch (state) {
-	/*
-	 * The firmware keeps running while the host sleeps, so the LED stays on to show power.
-	 * Turn it off in suspend once suspend also puts the chip to sleep.
-	 */
 	case USB_STATE_CONFIGURED:
-	case USB_STATE_SUSPENDED:
 		return &pattern_on;
+	case USB_STATE_SUSPENDED:
+		/* Dark while the host sleeps, like other USB devices, and to draw less current. */
+		return &pattern_off;
 	case USB_STATE_DISCONNECTED:
 	case USB_STATE_CONNECTED:
 	default:

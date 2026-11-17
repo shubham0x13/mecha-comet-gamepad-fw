@@ -1,0 +1,11 @@
+# Copyright (c) 2026 Mecha Systems
+# SPDX-License-Identifier: BSD-3-Clause
+
+config COMET_GAMEPAD_POWER_SAVING
+	bool "Power saving while the host sleeps"
+	default y
+	depends on $(dt_nodelabel_enabled,left_stick) || $(dt_nodelabel_enabled,pivot_pip)
+	select PM_DEVICE
+	help
+	  Stop the sticks while the host has suspended USB, for example while it sleeps, and
+	  start them again when it wakes the bus up.
